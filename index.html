@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>MHS Clubs & Sports</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="hayley.css">
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- Menu icon at the top left -->
+  <div class="menu-icon" id="menuIcon">☰</div>
+  <!-- Sidebar with links -->
+  <nav class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="index.html" onclick="selectPage(event)">Home</a></li>
+      <li><a href="clubs.html" onclick="selectPage(event)">Clubs</a></li>
+      <li><a href="hayley-fsport.html" onclick="selectPage(event)">Fall Sports</a></li>
+      <li><a href="hayley-wsport.html" onclick="selectPage(event)">Winter Sports</a></li>
+      <li><a href="hayley-ssport.html" onclick="selectPage(event)">Spring Sports</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="banner-carousel position-relative">
+      <div id="logoCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="1200">
+        <div class="carousel-inner">
+        </div>
+        <!-- controls removed for automatic sliding look -->
+      </div>
+      <div class="banner-text">
+        <h1 class="text-white mb-0">MHS Clubs & Sports</h1>
+      </div>
+    </div>
+    <div class="container-fluid bg-dark text-white p-3"> <!-- Search Bar -->
+      <div class="search-container" style="position: absolute; top: 15px; right: 20px; width: 250px;">
+        <input type="text" id="searchInput" placeholder="Search clubs, sports, keywords..." class="form-control"
+          autocomplete="off" style="font-size: 14px;">
+        <div id="searchDropdown" class="search-dropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; 
+                    color: black; border: 1px solid #ccc; border-radius: 4px; max-height: 300px; 
+                    overflow-y: auto; z-index: 1000; width: 100%; margin-top: 5px;"></div>
+      </div>
+      <br>
+      <br>
+    </div>
+
+    <div>
+      <h3 class="text-center mt-3"> Click the nav bar to look at the clubs and sports based on season, or use the search
+        bar to look up a specific club or sport and find their information!</h3>
+    </div>
+
+    <div class="container mt-5 mb-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <img src="icons/values.png" alt="values" class="img-fluid mx-auto d-block mt-4" style="max-width: 200px;">
+              <br>
+              <h3 class="card-title text-center">Sports</h3>
+              <h5>
+                <p class="card-text">Explore MHS sports organized by season. Browse through Fall, Winter, and Spring
+                  sports to discover different athletic programs available to students. Each sport contains key
+                  information, consisting of: coaches, contact information, and location.</p>
+
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <img src="icons/process.png" alt="proess" class="img-fluid mx-auto d-block mt-4"
+                style="max-width: 200px;">
+              <br>
+              <h3 class="card-title text-center">Clubs</h3>
+              <h5>
+                <p class="card-text">Discover our diverse range of student clubs. Whether you're interested in
+                  academics, arts, service, or hobbies, there's a club for you. Find out about different clubs offered
+                  at MHS!
+                  Some clubs may require further contact with the club advisor!
+                </p>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

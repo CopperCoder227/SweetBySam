@@ -1,0 +1,597 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-image: linear-gradient(to bottom, transparent, gray),
+        url(imgs/tile_background.png);
+    background-size: 80px;
+    animation-name: moveBG;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background-attachment: fixed;
+}
+
+@keyframes moveBG {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: 100px;
+    }
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 200px;
+    background-color: transparent;
+    z-index: 3;
+
+    .LOGO {
+        width: 150px;
+        height: 150px;
+        object-position: center;
+        object-fit: scale-down;
+        border-radius: 100%;
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        border: 5px outset black;
+        background: rgba(92, 92, 92, 0.37);
+        backdrop-filter: blur(3px);
+    }
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #003c72;
+    mask-image: linear-gradient(to bottom,
+            white,
+            rgba(255, 255, 255, 0.582),
+            transparent);
+}
+
+.spacing {
+    height: 100px;
+    width: auto;
+
+}
+
+/* Top menu icon */
+.menu-icon {
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #00223ffa;
+    color: white;
+    border-radius: 5px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: -200px;
+    /* Initially hidden off-screen */
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #00223ffa;
+    transition: left 0.5s ease-in-out;
+    /* Smooth transition */
+    z-index: 500;
+}
+
+/* Sidebar visible when 'open' class is applied */
+.sidebar.open {
+    left: 0;
+    /* Sidebar slides in */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #004e92fa;
+}
+
+/* Title styling */
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: xx-large;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 768px) {
+
+    /* Stack the content vertically on mobile */
+    .main-container {
+        flex-direction: column;
+    }
+
+    /* Sidebar takes full width on mobile */
+    .sidebar {
+        left: -100%;
+        /* Initially hidden off-screen on mobile */
+        width: 100%;
+        /* Full width for mobile */
+    }
+
+    .sidebar.open {
+        left: 0;
+        /* Visible when 'open' class is added */
+    }
+
+    /* Stack left and right divs vertically on small screens */
+    .content-row {
+        flex-direction: column;
+    }
+}
+
+
+.footimg {
+    width: 5%;
+    height: 5%
+}
+
+/* Div One: Split text and image evenly */
+.one .text-content,
+.one .image-content {
+    width: 50%;
+}
+
+/* Style the image in Div One */
+.one .custom-img {
+    width: 100%;
+    /* Take full width of the 50% container */
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.two .text-content,
+.two .image-content {
+    width: 50%;
+}
+
+.two .custom-img {
+    width: 100%;
+    /* Take full width of the 50% container */
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.three .text-content,
+.three .image-content {
+    width: 50%;
+}
+
+.three .custom-img {
+    width: 100%;
+    /* Take full width of the 50% container */
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.four .text-content,
+.four .image-content {
+    width: 50%;
+}
+
+.four .custom-img {
+    width: 100%;
+    /* Take full width of the 50% container */
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+
+.custom-img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.carousel-btn {
+    background-color: lightblue;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+    border-radius: 7px;
+}
+
+.carousel-btn:hover {
+    color: #000;
+}
+
+/* Center main container */
+.container {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.press-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+}
+
+.press-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.light-container {
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
+    width: 100%;
+}
+
+.light-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+textarea {
+    width: 100%;
+}
+
+.reviews .row {
+    padding: 0;
+    margin: 0;
+
+    .col-6 {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+a[aria-label="Home"] {
+    text-decoration: none;
+}
+
+.home-txt {
+    background-color: #bee1fffa;
+    border: solid black 5px;
+    border-radius: 40px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.home-txt-b {
+    background-color: #7cc2fffa;
+    border: solid black 5px;
+    border-radius: 40px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.home-txt-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #4babfffa;
+    border: solid black 5px;
+    border-radius: 40px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.home-txt-d {
+    background-color: #bee1fffa;
+    border: solid black 5px;
+    border-radius: 40px;
+}
+
+.home-txt-e {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #7cc2fffa;
+    border: solid black 5px;
+    border-radius: 40px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.home-txt-f {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #bee1fffa;
+    border: solid black 5px;
+    border-radius: 40px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.home-txt-g {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #068bfffa;
+    color: white;
+    border: solid black 5px;
+    border-radius: 40px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.textcolor {
+    color: white;
+}
+
+.textcolor:hover {
+    color: #daeefffa;
+}
+
+.home-list {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+@font-face {
+    src: url('Candy Season.otf');
+    font-family: childTitle;
+}
+
+.titleing {
+    font-family: "childTitle";
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 1.5rem;
+}
+
+.newimg {
+    height: 40%;
+    width: 40%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.bannerimg {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#fix {
+    width: 100%;
+    height: 80vh !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin-left: 50px;
+    /* Moves the element 50px to the right */
+}
+
+.contactContainer {
+    background-color: rgb(198, 255, 255);
+    border: solid black 10px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+#reviewList .card {
+    background-color: #d6ecfffa;
+    border-radius: 16px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+#reviewList .card h5 {
+    margin-bottom: 0.5rem;
+}
+
+#reviewList .card p {
+    margin-bottom: 0.3rem;
+    color: #555;
+}
+
+form#nameForm input,
+form#nameForm select,
+form#nameForm textarea {
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+}
+
+form#nameForm .btn {
+    border-radius: 12px;
+    font-weight: bold;
+    background-color: #003772;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+form#nameForm .btn:hover {
+    background-color: #4babfffa;
+    color: black;
+}
+
+#reviewWrapper {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+#reviewWrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+#reviewWrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.fancifyButton {
+    background-color: cyan;
+    border: solid black 2px;
+    border-radius: 5px;
+}
+
+.fancifyButton:hover {
+    background-color: darkcyan;
+    border: solid black 2px;
+    border-radius: 5px;
+    color: white;
+}
+
+#cart {
+    text-align: center;
+}
+
+.itemCards {
+    background-color: darkcyan;
+    color: white;
+}
+
+.map {
+    display: flex;
+
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    height: 50%;
+    width: 50%;
+
+}
+
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    /* Even spacing between items */
+    gap: 20px;
+    /* Optional: adds consistent gap between items */
+    padding: 20px;
+}
+
+/* ✅ Center the carousel */
+.slide {
+    width: 90 %;
+    margin: 0 auto;
+}
+
+/* Optional: Fix carousel height if it's too tall on mobile */
+.carousel - inner {
+    max - height: 300px;
+    /* Adjust as needed */
+}
+
+.carousel - inner.carousel - item img {
+    height: auto;
+    max - height: 300px;
+}
+}
+
+/* ✅ NEW: Stack & center container children on mobile */
+.container {
+    flex - direction: column;
+    align - items: center;
+}
+
+
+
+
+
+.slide {
+    max - width: 800px;
+    margin - bottom: 40px;
+    /* keep your spacing below carousel */
+}
+
+.carousel - inner {
+    height: auto;
+    /* or whatever fixed height you want */
+    position: relative;
+}
+
+.carousel - item {
+    height: 100 %;
+}
+
+.carousel - inner.carousel - item img {
+    height: 100 %;
+    width: 100 %;
+    object - fit: cover;
+}
+
+.carousel - inner.carousel - item: nth - child(3) img {
+    clip - path: inset(0 0 16px 0);
+}
+
+.spot-a {
+    height: 30%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.spot-b {
+    height: 50%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.spot-c {
+    height: 50%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
