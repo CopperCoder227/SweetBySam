@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const sorted = items.slice().sort((a, b) => a.name.localeCompare(b.name));
         sorted.forEach(item => {
             const col = document.createElement('div');
-            col.className = 'col';
+            col.className = currentPage === 'index.html' ? 'col-12' : 'col';
 
             const roleLabel = item.isClubbing ? 'Teacher' : 'Coach';
             const descriptionHTML = item.isClubbing
@@ -103,7 +103,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 : '';
             const showLocation = item.page !== 'clubs.html';
 
-            col.innerHTML = `
+            if (currentPage === 'index.html') {
+                col.innerHTML = `
+    <div class="club-card home-card" data-page="${escapeHtml(item.page)}">
+        ${imageHTML}
+        <div class="card-text">
+            <h3>${escapeHtml(item.name || 'Unnamed')}</h3>
+            <p><strong>${roleLabel}:</strong> ${escapeHtml(item.data.teacher || item.data.coach || 'TBD')}</p>
+            ${descriptionHTML}
+            <p><strong>Contact:</strong> ${escapeHtml(item.data.contact || 'N/A')}</p>
+            ${showLocation ? `<p><strong>Location:</strong> ${escapeHtml(item.data.location || 'TBD')}</p>` : ''}
+        </div>
+    </div>
+`;
+            } else {
+                col.innerHTML = `
     <div class="club-card" data-page="${escapeHtml(item.page)}">
         ${imageHTML}
         <h3>${escapeHtml(item.name || 'Unnamed')}</h3>
@@ -113,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ${showLocation ? `<p><strong>Location:</strong> ${escapeHtml(item.data.location || 'TBD')}</p>` : ''}
     </div>
 `;
+            }
 
             container.appendChild(col);
         });
