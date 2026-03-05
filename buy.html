@@ -18,6 +18,161 @@
             object-fit: cover;
             border-radius: 8px;
         }
+
+        .purchase-reviews-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .purchase-section,
+        .reviews-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .purchase-section h2,
+        .reviews-section h2 {
+            margin-bottom: 1.5rem;
+            color: blue;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .btn-primary {
+            background-color: blue;
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: darkblue;
+        }
+
+        .venmo-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #3d95ce;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+        }
+
+        .venmo-link:hover {
+            background-color: #2d7bb4;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .star {
+            font-size: 2rem;
+            cursor: pointer;
+            color: #ddd;
+            transition: color 0.2s;
+        }
+
+        .star:hover,
+        .star.active {
+            color: gold;
+        }
+
+        .reviews-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 1.5rem;
+        }
+
+        .review-card {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            border-left: 4px solid gold;
+        }
+
+        .review-stars {
+            color: gold;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-text {
+            margin: 0.5rem 0;
+            line-height: 1.4;
+        }
+
+        .star-filter {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .star-filter button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .star-filter button.active {
+            background: gold;
+            border-color: gold;
+            font-weight: bold;
+        }
+
+        .star-filter button:hover {
+            border-color: gold;
+        }
+
+        @media (max-width: 1024px) {
+            .purchase-reviews-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,20 +198,72 @@
     <main class="container my-5 pt-5">
         <div class="container page-header">
             <h1 class="text-center">
-                <!-- Change this per page -->
                 Purchase & Reviews
             </h1>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="clubs-container"></div>
+        <div class="purchase-reviews-container">
+            <!-- LEFT SIDE: PURCHASE FORM -->
+            <div class="purchase-section">
+                <h2>Order Your Sweet Treat</h2>
+                <form id="purchaseForm">
+                    <div class="form-group">
+                        <label for="dessertType">Select Dessert Type:</label>
+                        <select id="dessertType" required>
+                            <option value="">-- Choose --</option>
+                            <option value="cake">Cake</option>
+                            <option value="cookies">Cookies</option>
+                            <option value="brownies">Brownies</option>
+                            <option value="other">Other Desserts</option>
+                        </select>
+                    </div>
 
-        <div id="loading" class="text-center my-5">
-            <div class="spinner-border text-primary" role="status" style="width:3rem;height:3rem;"></div>
-            <p class="mt-3">Loading activities...</p>
-        </div>
+                    <div id="dynamicFields"></div>
 
-        <div id="error-message" class="alert alert-danger text-center mt-4" style="display:none;">
-            Unable to load the list. Please refresh the page.
+                    <button type="submit" class="btn-primary">Submit Order</button>
+                </form>
+
+                <a href="#" class="venmo-link">Pay via Venmo</a>
+            </div>
+
+            <!-- RIGHT SIDE: REVIEWS SECTION -->
+            <div class="reviews-section">
+                <h2>Reviews</h2>
+
+                <!-- Leave a Review -->
+                <div>
+                    <h4>Leave a Review</h4>
+                    <div class="form-group">
+                        <label>Rating:</label>
+                        <div class="star-rating" id="leaveReviewStars">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewText">Your Review:</label>
+                        <textarea id="reviewText" placeholder="Share your experience..."></textarea>
+                    </div>
+                    <button class="btn-primary" id="submitReview">Submit Review</button>
+                </div>
+
+                <!-- Filter by Stars -->
+                <h4 style="margin-top: 2rem;">Filter Reviews:</h4>
+                <div class="star-filter" id="starFilter">
+                    <button class="active" data-stars="all">All</button>
+                    <button data-stars="5">⭐⭐⭐⭐⭐ (5)</button>
+                    <button data-stars="4">⭐⭐⭐⭐ (4)</button>
+                    <button data-stars="3">⭐⭐⭐ (3)</button>
+                    <button data-stars="2">⭐⭐ (2)</button>
+                    <button data-stars="1">⭐ (1)</button>
+                </div>
+
+                <!-- Reviews List -->
+                <div class="reviews-list" id="reviewsList"></div>
+            </div>
         </div>
     </main>
 
@@ -69,6 +276,163 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
+
+    <script>
+        // Manage reviews in local storage
+        let reviews = JSON.parse(localStorage.getItem('sweetBySamReviews')) || [];
+        let selectedRating = 0;
+        let filterStars = 'all';
+
+        // Dynamic form fields based on dessert type
+        const formConfigs = {
+            cake: [
+                { label: 'Name', name: 'cakeName', type: 'text', placeholder: 'Enter cake name' },
+                { label: 'Description', name: 'description', type: 'textarea', placeholder: 'Describe your cake' },
+                { label: 'Size', name: 'cakeSize', type: 'select', options: ['6"', '8"', '10"', '12"'] }
+            ],
+            cookies: [
+                { label: 'Amount', name: 'cookieAmount', type: 'select', options: ['1 dozen', '2 dozen', '3 dozen', 'Custom'] },
+                { label: 'Type of Cookie', name: 'cookieType', type: 'select', options: ['Chocolate Chip', 'Sugar', 'Oatmeal', 'Peanut Butter', 'Mixed'] }
+            ],
+            brownies: [
+                { label: 'Amount', name: 'brownieAmount', type: 'select', options: ['1 box', '2 boxes', '3 boxes', 'Custom'] }
+            ],
+            other: [
+                { label: 'Dessert Name', name: 'dessertName', type: 'text', placeholder: 'What would you like?' },
+                { label: 'Description', name: 'specialDescription', type: 'textarea', placeholder: 'Tell us what you want' }
+            ]
+        };
+
+        // Update form fields based on dessert type selection
+        document.getElementById('dessertType').addEventListener('change', (e) => {
+            const type = e.target.value;
+            const container = document.getElementById('dynamicFields');
+            container.innerHTML = '';
+
+            if (!type) return;
+
+            const fields = formConfigs[type];
+            fields.forEach(field => {
+                const div = document.createElement('div');
+                div.className = 'form-group';
+
+                const label = document.createElement('label');
+                label.textContent = field.label;
+                div.appendChild(label);
+
+                if (field.type === 'textarea') {
+                    const textarea = document.createElement('textarea');
+                    textarea.name = field.name;
+                    textarea.placeholder = field.placeholder || '';
+                    textarea.required = true;
+                    div.appendChild(textarea);
+                } else if (field.type === 'select') {
+                    const select = document.createElement('select');
+                    select.name = field.name;
+                    select.required = true;
+                    select.innerHTML = '<option value="">-- Choose --</option>';
+                    field.options.forEach(opt => {
+                        const option = document.createElement('option');
+                        option.value = opt;
+                        option.textContent = opt;
+                        select.appendChild(option);
+                    });
+                    div.appendChild(select);
+                } else {
+                    const input = document.createElement('input');
+                    input.type = field.type;
+                    input.name = field.name;
+                    input.placeholder = field.placeholder || '';
+                    input.required = true;
+                    div.appendChild(input);
+                }
+
+                container.appendChild(div);
+            });
+        });
+
+        // Star rating for leaving review
+        document.querySelectorAll('#leaveReviewStars .star').forEach(star => {
+            star.addEventListener('click', (e) => {
+                selectedRating = parseInt(e.target.dataset.value);
+                document.querySelectorAll('#leaveReviewStars .star').forEach(s => s.classList.remove('active'));
+                for (let i = 0; i < selectedRating; i++) {
+                    document.querySelectorAll('#leaveReviewStars .star')[i].classList.add('active');
+                }
+            });
+        });
+
+        // Submit review
+        document.getElementById('submitReview').addEventListener('click', () => {
+            const reviewText = document.getElementById('reviewText').value.trim();
+            if (!selectedRating || !reviewText) {
+                alert('Please select a rating and enter a review.');
+                return;
+            }
+
+            reviews.push({
+                rating: selectedRating,
+                text: reviewText,
+                date: new Date().toLocaleDateString()
+            });
+
+            localStorage.setItem('sweetBySamReviews', JSON.stringify(reviews));
+            document.getElementById('reviewText').value = '';
+            selectedRating = 0;
+            document.querySelectorAll('#leaveReviewStars .star').forEach(s => s.classList.remove('active'));
+
+            displayReviews();
+        });
+
+        // Display reviews based on filter
+        function displayReviews() {
+            const reviewsList = document.getElementById('reviewsList');
+            reviewsList.innerHTML = '';
+
+            const filteredReviews = filterStars === 'all' ? reviews : reviews.filter(r => r.rating === parseInt(filterStars));
+
+            if (filteredReviews.length === 0) {
+                reviewsList.innerHTML = '<p style="text-align: center; color: #999;">No reviews yet.</p>';
+                return;
+            }
+
+            filteredReviews.forEach(review => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+
+                const stars = '⭐'.repeat(review.rating);
+                reviewCard.innerHTML = `
+                    <div class="review-stars">${stars} (${review.rating}/5)</div>
+                    <div class="review-text">${review.text}</div>
+                    <small style="color: #999;">${review.date}</small>
+                `;
+
+                reviewsList.appendChild(reviewCard);
+            });
+        }
+
+        // Star filter buttons
+        document.querySelectorAll('.star-filter button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.star-filter button').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                filterStars = e.target.dataset.stars;
+                displayReviews();
+            });
+        });
+
+        // Form submission
+        document.getElementById('purchaseForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your order! Check your email for confirmation.');
+            document.getElementById('purchaseForm').reset();
+            document.getElementById('dessertType').value = '';
+            document.getElementById('dynamicFields').innerHTML = '';
+        });
+
+        // Initialize reviews display on page load
+        displayReviews();
+    </script>
 </body>
 
 </html>
