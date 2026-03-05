@@ -145,10 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getPageLabel(page) {
         const map = {
-            'clubs.html': 'Clubs',
-            'hayley-fsport.html': 'Fall Sports',
-            'hayley-wsport.html': 'Winter Sports',
-            'hayley-ssport.html': 'Spring Sports'
+            'index.html': 'Home',
+            'insta.html': 'Creations',
+            'buy.html': 'Purchase & Reviews',
         };
         return map[page] || (page ? page.replace('.html', '') : '');
     }
@@ -298,12 +297,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // ── Carousel ────────────────────────────────────────────────
 const carouselImages = [
     // choose whichever images you prefer; the first will show initially
-    'imgs/IMG_8539.jpeg',
-    'imgs/IMG_8540.jpeg',
-    'imgs/IMG_8541.jpeg',
-    'imgs/IMG_8542.jpeg',
-    'imgs/IMG_8543.jpeg',
-    'imgs/IMG_8544.jpeg',
+    'img/babyCake.jpeg',
+    'img/birdCake.jpeg',
+    'img/chocoCake.jpeg',
+    'img/flowerCake.jpeg',
+    'img/forvCake.jpeg',
+    'img/xoCake.jpeg',
 ];
 
 function initCarousel() {
