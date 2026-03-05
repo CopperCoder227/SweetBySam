@@ -24,6 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let searchIndex = [];
 
+    const buyItems = [
+        { name: "Baby Cake", description: "Adorable baby-themed cake perfect for celebrations.", image: "img/babyCake.jpeg" },
+        { name: "Bird Cake", description: "Elegant bird-decorated cake for any occasion.", image: "img/birdCake.jpeg" },
+        { name: "Chocolate Cake", description: "Rich and decadent chocolate cake.", image: "img/chocoCake.jpeg" },
+        { name: "Flower Cake", description: "Beautiful floral cake design.", image: "img/flowerCake.jpeg" },
+        { name: "Forever Cake", description: "Timeless cake for eternal love.", image: "img/forvCake.jpeg" },
+        { name: "XO Cake", description: "Sweet cake with hugs and kisses.", image: "img/xoCake.jpeg" }
+    ];
+
+    const instaItems = [
+        { name: "Baby Cake", description: "Adorable baby-themed cake perfect for celebrations.", image: "img/babyCake.jpeg" },
+        { name: "Bird Cake", description: "Elegant bird-decorated cake for any occasion.", image: "img/birdCake.jpeg" },
+        { name: "Chocolate Cake", description: "Rich and decadent chocolate cake.", image: "img/chocoCake.jpeg" },
+        { name: "Flower Cake", description: "Beautiful floral cake design.", image: "img/flowerCake.jpeg" },
+        { name: "Forever Cake", description: "Timeless cake for eternal love.", image: "img/forvCake.jpeg" },
+        { name: "XO Cake", description: "Sweet cake with hugs and kisses.", image: "img/xoCake.jpeg" }
+    ];
+
     function fetchAllDataFiles() {
         const sources = [
             { file: './data/clubbing.JSON', page: 'clubs.html' },
@@ -81,7 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (loading) loading.style.display = 'none';
         container.innerHTML = '';
 
-        const items = (Array.isArray(searchIndex) ? searchIndex.filter(i => i.page === currentPage) : []);
+        let items = [];
+        if (currentPage === 'buy.html') {
+            items = buyItems.map(item => ({ name: item.name, page: 'buy.html', pageLabel: 'Purchase & Reviews', data: item, keywords: [], isClubbing: false }));
+        } else if (currentPage === 'insta.html') {
+            items = instaItems.map(item => ({ name: item.name, page: 'insta.html', pageLabel: 'Creations', data: item, keywords: [], isClubbing: false }));
+        } else {
+            items = (Array.isArray(searchIndex) ? searchIndex.filter(i => i.page === currentPage) : []);
+        }
 
         if (!items.length) {
             container.innerHTML = '<p class="text-center lead">No items listed yet.</p>';
@@ -114,6 +139,15 @@ document.addEventListener('DOMContentLoaded', () => {
             <p><strong>Contact:</strong> ${escapeHtml(item.data.contact || 'N/A')}</p>
             ${showLocation ? `<p><strong>Location:</strong> ${escapeHtml(item.data.location || 'TBD')}</p>` : ''}
         </div>
+    </div>
+`;
+            } else if (currentPage === 'buy.html' || currentPage === 'insta.html') {
+                const descriptionHTML = `<p>${escapeHtml(item.data.description || '')}</p>`;
+                col.innerHTML = `
+    <div class="club-card" data-page="${escapeHtml(item.page)}">
+        ${imageHTML}
+        <h3>${escapeHtml(item.name || 'Unnamed')}</h3>
+        ${descriptionHTML}
     </div>
 `;
             } else {
