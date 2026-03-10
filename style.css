@@ -248,3 +248,13 @@ main {
         /* less push on small screens */
     }
 }
+
+/* uniform sizing for sam/teddy carousel images */
+.card .carousel .carousel-item img {
+    width: 100%;
+    /* fill carousel width */
+    height: 200px;
+    /* consistent height matching previous photos */
+    object-fit: cover;
+    /* scale and crop to fit */
+}
