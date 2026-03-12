@@ -170,34 +170,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ── Carousel ────────────────────────────────────────────────
+// Configure the slides in the scrolling carousel.  Each entry may be either a
+// simple string (path) or an object with extra styling options.  The
+// `offsetY` and `offsetX` properties will be applied via CSS transform and can
+// be used to raise/shift individual photos (e.g. raise the "babyCake" image).
 const carouselImages = [
-    // choose whichever images you prefer; the first will show initially
-    'img/babyCake.jpeg',
-    'img/birdCake.jpeg',
-    'img/chocoCake.jpeg',
-    'img/flowerCake.jpeg',
-    'img/forvCake.jpeg',
-    'img/xoCake.jpeg',
-    "img/chocolateCake.jpeg",
-    "img/fridgeCake.jpeg"
+    // simple path: no special positioning
+    { src: 'img/babyCake.jpeg', offsetY: '-200px' },      // example offset
+    { src: 'img/birdCake.jpeg' },
+    { src: 'img/chocoCake.jpeg', offsetY: '-200px' },
+    { src: 'img/flowerCake.jpeg', offsetY: '-200px' },
+    { src: 'img/forvCake.jpeg', offsetY: '-250px' },
+    { src: 'img/xoCake.jpeg', offsetY: '-250px' },
+    { src: 'img/chocolateCake.jpeg', offsetY: '-200px' },
+    { src: 'img/fridgeCake.jpeg', offsetY: '-350px' }
 ];
 
 function initCarousel() {
-    const carouselInner = document.querySelector('.carousel-inner');
+    // target the banner carousel specifically so we don't clobber the smaller cards
+    const carouselInner = document.querySelector('#logoCarousel .carousel-inner');
     if (!carouselInner) return;
 
     // clear any existing slides
     carouselInner.innerHTML = '';
 
-    carouselImages.forEach((imagePath, index) => {
+    carouselImages.forEach((item, index) => {
+        // allow both string and object definitions for backward compatibility
+        const imgPath = typeof item === 'string' ? item : item.src;
+        const offsetX = item.offsetX || '0';
+        const offsetY = item.offsetY || '0';
+
         const carouselItem = document.createElement('div');
         carouselItem.className = 'carousel-item' + (index === 0 ? ' active' : '');
 
         const img = document.createElement('img');
-        img.src = imagePath;
+        img.src = imgPath;
         img.alt = `Slide ${index + 1}`;
         img.className = 'd-block w-100';
         img.style.objectFit = 'cover';
+
+        // apply translation if offsets are provided
+        if (offsetX !== '0' || offsetY !== '0') {
+            img.style.transform = `translate(${offsetX}, ${offsetY})`;
+        }
 
         carouselItem.appendChild(img);
         carouselInner.appendChild(carouselItem);
