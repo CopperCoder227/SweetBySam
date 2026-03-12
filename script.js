@@ -166,6 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
             container.appendChild(col);
         });
     }
+    // initialize banner carousel after cards (and other DOM) are ready
+    initCarousel();
 });
 
 

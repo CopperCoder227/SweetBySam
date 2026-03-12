@@ -278,3 +278,36 @@ main {
 .site-footer p {
     margin: 0.25rem 0;
 }
+
+/* carousel sizing: allow full width inside card and remove limits */
+.carousel-wrapper .carousel {
+    width: 100%;
+    /* fill whatever space the card gives */
+    max-width: none;
+    /* no artificial cap */
+}
+
+/* images already fill their parent container */
+.carousel-wrapper .carousel img {
+    width: 100%;
+    height: auto;
+}
+
+/* spacing around text content inside cards */
+.text-wrapper {
+    padding: 1rem 1.5rem;
+}
+
+.text-wrapper h3 {
+    margin-bottom: 0.5rem;
+}
+
+.text-wrapper p {
+    margin: 0.5rem 0 0;
+    line-height: 1.5;
+}
+
+.carousel-wrapper .carousel img {
+    width: 100%;
+    height: auto;
+}
