@@ -178,6 +178,8 @@ const carouselImages = [
     'img/flowerCake.jpeg',
     'img/forvCake.jpeg',
     'img/xoCake.jpeg',
+    "img/chocolateCake.jpeg",
+    "img/fridgeCake.jpeg"
 ];
 
 function initCarousel() {
