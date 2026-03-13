@@ -259,6 +259,23 @@ main {
     /* scale and crop to fit */
 }
 
+/* Expand images on large screens */
+@media (min-width: 992px) {
+    .card .carousel .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carousel-lg {
+        flex: 1;
+    }
+
+    .text-lg {
+        flex: 1;
+    }
+}
+
 /* Footer styling */
 .site-footer {
     background: #f8f9fa;
