@@ -253,10 +253,35 @@ main {
 .card .carousel .carousel-item img {
     width: 100%;
     /* fill carousel width */
-    height: 200px;
-    /* consistent height matching previous photos */
+    height: 150px;
+    /* base height for small screens */
     object-fit: cover;
     /* scale and crop to fit */
+}
+
+/* Scale image height on larger screens */
+@media (min-width: 576px) {
+    .card .carousel .carousel-item img {
+        height: 180px;
+    }
+}
+
+@media (min-width: 768px) {
+    .card .carousel .carousel-item img {
+        height: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    .card .carousel .carousel-item img {
+        height: 250px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card .carousel .carousel-item img {
+        height: 300px;
+    }
 }
 
 /* Expand images on large screens */
