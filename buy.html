@@ -227,43 +227,24 @@
             </div>
 
             <!-- RIGHT SIDE: REVIEWS SECTION -->
-            <div class="reviews-section">
-                <h2>Reviews</h2>
+            <!-- Google Reviews Section -->
+            <section id="google-reviews" class="my-5 container text-center">
+                <h2 class="mb-4">Customer Reviews</h2>
+                <p>See what our customers are saying about Sweets By Sam!</p>
 
-                <!-- Leave a Review -->
-                <div>
-                    <h4>Leave a Review</h4>
-                    <div class="form-group">
-                        <label>Rating:</label>
-                        <div class="star-rating" id="leaveReviewStars">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="reviewText">Your Review:</label>
-                        <textarea id="reviewText" placeholder="Share your experience..."></textarea>
-                    </div>
-                    <button class="btn-primary" id="submitReview">Submit Review</button>
+                <!-- Button to leave a Google review -->
+                <a href="https://g.page/YourGoogleBusinessID/review" target="_blank" class="btn btn-primary mb-4">
+                    Leave a Review on Google
+                </a>
+
+                <!-- Optional: Embed recent Google reviews using iframe (read-only preview) -->
+                <div class="google-review-embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m2!1m1!1sYourGooglePlaceID" width="100%"
+                        height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
-
-                <!-- Filter by Stars -->
-                <h4 style="margin-top: 2rem;">Filter Reviews:</h4>
-                <div class="star-filter" id="starFilter">
-                    <button class="active" data-stars="all">All</button>
-                    <button data-stars="5">⭐⭐⭐⭐⭐ (5)</button>
-                    <button data-stars="4">⭐⭐⭐⭐ (4)</button>
-                    <button data-stars="3">⭐⭐⭐ (3)</button>
-                    <button data-stars="2">⭐⭐ (2)</button>
-                    <button data-stars="1">⭐ (1)</button>
-                </div>
-
-                <!-- Reviews List -->
-                <div class="reviews-list" id="reviewsList"></div>
-            </div>
+            </section>
         </div>
     </main>
 

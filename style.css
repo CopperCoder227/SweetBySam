@@ -382,3 +382,38 @@ main {
         flex: 0 0 auto;
     }
 }
+
+/* ── Google Reviews Section Styling ───────────────────────── */
+#google-reviews {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#google-reviews h2 {
+    font-size: 1.8rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+#google-reviews p {
+    font-size: 1.05rem;
+    color: #212529;
+    margin-bottom: 1.5rem;
+}
+
+#google-reviews .btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+}
+
+#google-reviews .google-review-embed iframe {
+    border-radius: 10px;
+    margin-top: 1rem;
+    max-width: 100%;
+}
