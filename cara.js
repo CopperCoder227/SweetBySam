@@ -48,4 +48,3 @@ const createClubCard = (club) => {
 document.addEventListener('DOMContentLoaded', () => {
     fetchClubsData();
 });
-

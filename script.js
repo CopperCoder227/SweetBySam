@@ -222,4 +222,3 @@ function initCarousel() {
 }
 
 document.addEventListener('DOMContentLoaded', initCarousel);
-

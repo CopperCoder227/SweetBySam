@@ -1,9 +1,7 @@
 /* Reset basics + body */
 body {
     font-family: "SN Pro", sans-serif !important;
-    background-image: linear-gradient(to bottom,
-            rgb(136, 211, 255),
-            rgb(0, 162, 255)) !important;
+    background-color: rgb(238, 238, 238) !important;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
