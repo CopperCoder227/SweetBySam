@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuIcon = document.getElementById('menuIcon');
     const sidebar = document.getElementById('sidebar');
 
+    initCarousel();
+
+    loadCategory('./JSON/cake.JSON', 'clubs-container', 'loading-cakes');
+    loadCategory('./JSON/cookies.JSON', 'clubs-containerA', 'loading-cookies');
+    loadCategory('./JSON/other.JSON', 'clubs-containerB', 'loading-other');
+
     if (menuIcon && sidebar) {
         menuIcon.addEventListener('click', () => {
             sidebar.classList.toggle('open');
@@ -21,8 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Correct containers
     const container = document.getElementById('clubs-container');
-    const containerA = document.getElementById('clubs-containerA');
-    const containerB = document.getElementById('clubs-containerB');
+
 
     const loading = document.getElementById('loading');
     const errorEl = document.getElementById('error-message');
@@ -66,36 +71,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        if (containerA) renderItems(buyItems, containerA);
-        if (containerB) renderItems(instaItems, containerB);
-    });
 
-    function fetchAllDataFiles() {
-        const sources = [
-            { file: './data/cakes.json', page: 'cakes.html' },
-            { file: './data/cookies.json', page: 'cookies.html' },
-            { file: './data/others.json', page: 'others.html' },
-        ];
-        ];
+    function loadCategory(file, containerId, loadingId) {
+        const loading = document.getElementById(loadingId);
 
-        return Promise.all(sources.map(s =>
-            fetch(s.file)
-                .then(r => r.ok ? r.json() : [])
-                .then(arr => (Array.isArray(arr) ? arr.map(it => {
-                    const name = String(it.name || '').trim();
-                    // build a keyword set from name + description + any aliases
-                    const desc = String(it.description || it.desc || '');
-                    const alias = String(it.aliases || it.alias || '');
-                    const words = (name + ' ' + desc + ' ' + alias).toLowerCase().match(/\b\w+\b/g) || [];
-                    const keywords = Array.from(new Set([name.toLowerCase(), ...words]));
-                    return { name, page: s.page, pageLabel: getPageLabel(s.page), data: it, keywords, isClubbing: s.page === 'clubs.html' };
-                }) : []))
-                .catch(() => [])
-        )).then(results => {
-            // flatten, drop empty names, and assign stable ids
-            searchIndex = results.flat().filter(e => e.name).map((e, i) => ({ id: i, ...e }));
-        });
+        if (loading) loading.style.display = 'block';
+
+        fetch(file)
+            .then(res => res.ok ? res.json() : [])
+            .then(items => {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+
+                container.innerHTML = '';
+
+                items.forEach(item => {
+                    const col = document.createElement('div');
+                    col.className = 'col';
+
+                    col.innerHTML = `
+                    <div class="club-card">
+                        <img src="${item.image}" class="club-image" alt="${item.name}">
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                    </div>
+                `;
+
+                    container.appendChild(col);
+                });
+
+                // ✅ HIDE loading when done
+                if (loading) loading.style.display = 'none';
+            })
+            .catch(() => {
+                const container = document.getElementById(containerId);
+                if (container) {
+                    container.innerHTML = '<p class="text-center">Failed to load items.</p>';
+                }
+
+                if (loading) loading.style.display = 'none';
+            });
     }
 
     function getCurrentPageFilename() {
@@ -116,85 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return String(str).replace(/[&<>"']/g, s => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": "&#39;" }[s]));
     }
 
-    // fetch the data index and render only the current page's cards
-    fetchAllDataFiles().then(() => {
-        const currentPage = getCurrentPageFilename();
-        renderCardsForCurrentPage(currentPage);
-    });
 
-    // Render only cards that belong to the current page
-    function renderCardsForCurrentPage(currentPage) {
-        if (!container) return;
-        if (loading) loading.style.display = 'none';
-        container.innerHTML = '';
 
-        let items = [];
-        if (currentPage === 'buy.html') {
-            items = buyItems.map(item => ({ name: item.name, page: 'buy.html', pageLabel: 'Purchase & Reviews', data: item, keywords: [], isClubbing: false }));
-        } else if (currentPage === 'insta.html') {
-            items = instaItems.map(item => ({ name: item.name, page: 'insta.html', pageLabel: 'Creations', data: item, keywords: [], isClubbing: false }));
-        } else {
-            items = (Array.isArray(searchIndex) ? searchIndex.filter(i => i.page === currentPage) : []);
-        }
 
-        if (!items.length) {
-            container.innerHTML = '<p class="text-center lead">No items listed yet.</p>';
-            return;
-        }
-
-        const sorted = items.slice().sort((a, b) => a.name.localeCompare(b.name));
-        sorted.forEach(item => {
-            const col = document.createElement('div');
-            col.className = currentPage === 'index.html' ? 'col-12' : 'col';
-
-            const roleLabel = item.isClubbing ? 'Teacher' : 'Coach';
-            const descriptionHTML = item.isClubbing
-                ? `<p><strong>Description:</strong> ${escapeHtml(item.data.description || 'No description available.')}</p>`
-                : '';
-
-            const imageHTML = item.data.image
-                ? `<img src="${escapeHtml(item.data.image)}" alt="${escapeHtml(item.name || 'Unnamed')}" class="club-image">`
-                : '';
-            const showLocation = item.page !== 'clubs.html';
-
-            if (currentPage === 'index.html') {
-                col.innerHTML = `
-    <div class="club-card home-card" data-page="${escapeHtml(item.page)}">
-        ${imageHTML}
-        <div class="card-text">
-            <h3>${escapeHtml(item.name || 'Unnamed')}</h3>
-            <p><strong>${roleLabel}:</strong> ${escapeHtml(item.data.teacher || item.data.coach || 'TBD')}</p>
-            ${descriptionHTML}
-            <p><strong>Contact:</strong> ${escapeHtml(item.data.contact || 'N/A')}</p>
-            ${showLocation ? `<p><strong>Location:</strong> ${escapeHtml(item.data.location || 'TBD')}</p>` : ''}
-        </div>
-    </div>
-`;
-            } else if (currentPage === 'buy.html' || currentPage === 'insta.html') {
-                const descriptionHTML = `<p>${escapeHtml(item.data.description || '')}</p>`;
-                col.innerHTML = `
-    <div class="club-card" data-page="${escapeHtml(item.page)}">
-        ${imageHTML}
-        <h3>${escapeHtml(item.name || 'Unnamed')}</h3>
-        ${descriptionHTML}
-    </div>
-`;
-            } else {
-                col.innerHTML = `
-    <div class="club-card" data-page="${escapeHtml(item.page)}">
-        ${imageHTML}
-        <h3>${escapeHtml(item.name || 'Unnamed')}</h3>
-        <p><strong>${roleLabel}:</strong> ${escapeHtml(item.data.teacher || item.data.coach || 'TBD')}</p>
-        ${descriptionHTML}
-        <p><strong>Contact:</strong> ${escapeHtml(item.data.contact || 'N/A')}</p>
-        ${showLocation ? `<p><strong>Location:</strong> ${escapeHtml(item.data.location || 'TBD')}</p>` : ''}
-    </div>
-`;
-            }
-
-            container.appendChild(col);
-        });
-    }
     // initialize banner carousel after cards (and other DOM) are ready
     initCarousel();
 });
@@ -249,5 +188,3 @@ function initCarousel() {
         carouselInner.appendChild(carouselItem);
     });
 }
-
-document.addEventListener('DOMContentLoaded', initCarousel);
