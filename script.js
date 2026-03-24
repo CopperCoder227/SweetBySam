@@ -18,7 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ── Card loading only if container exists ─────────────────
+
+    // Correct containers
     const container = document.getElementById('clubs-container');
+    const containerA = document.getElementById('clubs-containerA');
+    const containerB = document.getElementById('clubs-containerB');
+
     const loading = document.getElementById('loading');
     const errorEl = document.getElementById('error-message');
 
@@ -42,12 +47,36 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "XO Cake", description: "Sweet cake with hugs and kisses.", image: "img/xoCake.jpeg" }
     ];
 
+    function renderItems(items, container) {
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        items.forEach(item => {
+            const card = document.createElement("div");
+            card.className = "club-card";
+
+            card.innerHTML = `
+            <img src="${item.image}" class="club-image" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p>${item.description}</p>
+        `;
+
+            container.appendChild(card);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        if (containerA) renderItems(buyItems, containerA);
+        if (containerB) renderItems(instaItems, containerB);
+    });
+
     function fetchAllDataFiles() {
         const sources = [
-            { file: './data/clubbing.JSON', page: 'clubs.html' },
-            { file: './data/fall.JSON', page: 'hayley-fsport.html' },
-            { file: './data/winter.JSON', page: 'hayley-wsport.html' },
-            { file: './data/spring.JSON', page: 'hayley-ssport.html' },
+            { file: './data/cakes.json', page: 'cakes.html' },
+            { file: './data/cookies.json', page: 'cookies.html' },
+            { file: './data/others.json', page: 'others.html' },
+        ];
         ];
 
         return Promise.all(sources.map(s =>

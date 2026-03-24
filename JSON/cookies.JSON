@@ -1,0 +1,57 @@
+        [
+            {
+                "name": "Black and White Cookie",
+                "description": "Adorable baby-themed cake perfect for celebrations.",
+                "image": "img/babyCake.jpeg"
+            },
+            {
+                "name": "CHocolate Chip Cookies",
+                "description": "Elegant bird-decorated cake for any occasion.",
+                "image": "img/birdCake.jpeg"
+            },
+            {
+                "name": "Chocolate Brittle",
+                "description": "Rich and decadent chocolate cake.",
+                "image": "img/chocoCake.jpeg"
+            },
+            {
+                "name": "Coffee Teramisu",
+                "description": "Beautiful floral cake design.",
+                "image": "img/flowerCake.jpeg"
+            },
+            {
+                "name": "Crumbling Cookie",
+                "description": "Timeless cake for eternal love.",
+                "image": "img/forvCake.jpeg"
+            },
+            {
+                "name": "Decorated Cookies",
+                "description": "Sweet cake with hugs and kisses.",
+                "image": "img/xoCake.jpeg"
+            },
+            {
+                "name": "More Cookies",
+                "description": "Sweet cake with hugs and kisses.",
+                "image": "img/xoCake.jpeg"
+            },
+            {
+                "name": "Pretzel Cookies",
+                "description": "Sweet cake with hugs and kisses.",
+                "image": "img/xoCake.jpeg"
+            },
+            {
+                "name": "Rainbow Cookies",
+                "description": "Sweet cake with hugs and kisses.",
+                "image": "img/xoCake.jpeg"
+            },
+            {
+                "name": "Rice Krispie Cookies",
+                "description": "Sweet cake with hugs and kisses.",
+                "image": "img/xoCake.jpeg"
+            },
+            {
+                "name": "Decorated Cookies",
+                "description": "Sweet cake with hugs and kisses.",
+                "image": "img/xoCake.jpeg"
+            }
+        ]

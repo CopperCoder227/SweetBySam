@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Baby Cake",
+        "description": "Adorable baby-themed cake perfect for celebrations.",
+        "image": "img/babyCake.jpeg"
+    },
+    {
+        "name": "Bird Cake",
+        "description": "Elegant bird-decorated cake for any occasion.",
+        "image": "img/birdCake.jpeg"
+    },
+    {
+        "name": "Chocolate Cake",
+        "description": "Rich and decadent chocolate cake.",
+        "image": "img/chocoCake.jpeg"
+    },
+    {
+        "name": "Flower Cake",
+        "description": "Beautiful floral cake design.",
+        "image": "img/flowerCake.jpeg"
+    },
+    {
+        "name": "Forever Cake",
+        "description": "Timeless cake for eternal love.",
+        "image": "img/forvCake.jpeg"
+    },
+    {
+        "name": "XO Cake",
+        "description": "Sweet cake with hugs and kisses.",
+        "image": "img/xoCake.jpeg"
+    }
+]
