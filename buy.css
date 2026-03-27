@@ -1,0 +1,195 @@
+.club-card .club-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.purchase-reviews-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.purchase-section,
+.reviews-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.purchase-section h2,
+.reviews-section h2 {
+    margin-bottom: 1.5rem;
+    color: blue;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.btn-primary {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: darkblue;
+}
+
+.venmo-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #3d95ce;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+.venmo-link:hover {
+    background-color: #2d7bb4;
+}
+
+.star-rating {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.star {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.2s;
+}
+
+.star:hover,
+.star.active {
+    color: gold;
+}
+
+.reviews-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 1.5rem;
+}
+
+.review-card {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    border-left: 4px solid gold;
+}
+
+.review-stars {
+    color: gold;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.review-text {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+.star-filter {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.star-filter button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.star-filter button.active {
+    background: gold;
+    border-color: gold;
+    font-weight: bold;
+}
+
+.star-filter button:hover {
+    border-color: gold;
+}
+
+@media (max-width: 1024px) {
+    .purchase-reviews-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Shared button style */
+.custom-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+/* Purchase button (Venmo) */
+.venmo-link {
+    background-color: #3D95CE;
+    color: white;
+}
+
+.venmo-link:hover {
+    background-color: #2f7fb3;
+    transform: translateY(-2px);
+}
+
+/* Review button */
+.review-btn {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 2px solid #ddd;
+}
+
+.review-btn:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+}
