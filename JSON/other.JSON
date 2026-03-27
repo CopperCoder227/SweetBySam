@@ -1,7 +1,12 @@
 [
     {
         "name": "Coffee Teramisu",
-        "description": "Beautiful floral cake design.",
-        "image": "img/flowerCake.jpeg"
+        "description": "Rich coffee tiramisu layered with smooth cream and cocoa.",
+        "image": "img/cofeeteramisu.jpeg"
+    },
+    {
+        "name": "Chocolate Brittle",
+        "description": "Crunchy chocolate brittle with a rich, sweet snap.",
+        "image": "img/chocolateBrittle.jpeg"
     }
 ]

@@ -1,52 +1,52 @@
-        [
-            {
-                "name": "Black and White Cookie",
-                "description": "Adorable baby-themed cake perfect for celebrations.",
-                "image": "img/babyCake.jpeg"
-            },
-            {
-                "name": "CHocolate Chip Cookies",
-                "description": "Elegant bird-decorated cake for any occasion.",
-                "image": "img/birdCake.jpeg"
-            },
-            {
-                "name": "Chocolate Brittle",
-                "description": "Rich and decadent chocolate cake.",
-                "image": "img/chocoCake.jpeg"
-            },
-            {
-                "name": "Crumbling Cookie",
-                "description": "Timeless cake for eternal love.",
-                "image": "img/forvCake.jpeg"
-            },
-            {
-                "name": "Decorated Cookies",
-                "description": "Sweet cake with hugs and kisses.",
-                "image": "img/xoCake.jpeg"
-            },
-            {
-                "name": "More Cookies",
-                "description": "Sweet cake with hugs and kisses.",
-                "image": "img/xoCake.jpeg"
-            },
-            {
-                "name": "Pretzel Cookies",
-                "description": "Sweet cake with hugs and kisses.",
-                "image": "img/xoCake.jpeg"
-            },
-            {
-                "name": "Rainbow Cookies",
-                "description": "Sweet cake with hugs and kisses.",
-                "image": "img/xoCake.jpeg"
-            },
-            {
-                "name": "Rice Krispie Cookies",
-                "description": "Sweet cake with hugs and kisses.",
-                "image": "img/xoCake.jpeg"
-            },
-            {
-                "name": "Decorated Cookies",
-                "description": "Sweet cake with hugs and kisses.",
-                "image": "img/xoCake.jpeg"
-            }
-        ]
+[
+    {
+        "name": "Black and White Cookie",
+        "description": "Classic soft cookie with rich chocolate and vanilla icing.",
+        "image": "img/blacknwhiteCookies.jpeg"
+    },
+    {
+        "name": "Chocolate Chip Cookies",
+        "description": "Warm, gooey cookies loaded with chocolate chips.",
+        "image": "img/chococookie.jpeg"
+    },
+    {
+        "name": "Crumbling Cookie",
+        "description": "Soft, buttery cookie with a delicate crumb.",
+        "image": "img/crumblecookie.jpeg"
+    },
+    {
+        "name": "Decorated Cookies",
+        "description": "Hand-decorated cookies with sweet icing designs.",
+        "image": "img/decoratedCookie.jpeg"
+    },
+    {
+        "name": "More Cookies",
+        "description": "A delicious mix of freshly baked cookie favorites.",
+        "image": "img/morecookie.jpeg"
+    },
+    {
+        "name": "Pretzel Cookies",
+        "description": "Sweet and salty cookies with crunchy pretzel pieces.",
+        "image": "img/pretzelCookie.jpeg"
+    },
+    {
+        "name": "Rainbow Cookies",
+        "description": "Colorful layered cookies with almond flavor and chocolate.",
+        "image": "img/towerrainbowcookie.jpeg"
+    },
+    {
+        "name": "Rice Krispie Cookies",
+        "description": "Crispy, chewy cookies with marshmallow and crunch.",
+        "image": "img/ricecrispyCookie.jpeg"
+    },
+    {
+        "name": "Brownie Cookie",
+        "description": "Fudgy, rich cookie with deep chocolate flavor.",
+        "image": "img/bworniecookie.jpeg"
+    },
+    {
+        "name": "'Thanks' Cookie",
+        "description": "Buttery cookie packed with sweet, crunchy toffee bits.",
+        "image": "img/tycookie.jpeg"
+    }
+]
