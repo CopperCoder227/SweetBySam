@@ -448,7 +448,7 @@ main {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.75rem 1.5rem;
-    background-color: #3d95ce;
+    background-color: #37acff;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -458,5 +458,6 @@ main {
 }
 
 .venmo-link:hover {
-    background-color: #2d7bb4;
+    background-color: #65b9f5;
+    transform: translateY(-2px);
 }

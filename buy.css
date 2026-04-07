@@ -173,12 +173,12 @@
 
 /* Purchase button (Venmo) */
 .venmo-link {
-    background-color: #3D95CE;
+    background-color: #37acff;
     color: white;
 }
 
 .venmo-link:hover {
-    background-color: #2f7fb3;
+    background-color: #65b9f5;
     transform: translateY(-2px);
 }
 
