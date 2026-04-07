@@ -415,3 +415,48 @@ main {
     margin-top: 1rem;
     max-width: 100%;
 }
+
+.purchase-reviews-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .purchase-reviews-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.purchase-section,
+.reviews-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.purchase-section h2,
+.reviews-section h2 {
+    margin-bottom: 1.5rem;
+    color: blue;
+    font-weight: bold;
+}
+
+.venmo-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #3d95ce;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+.venmo-link:hover {
+    background-color: #2d7bb4;
+}
