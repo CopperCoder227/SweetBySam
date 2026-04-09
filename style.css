@@ -90,7 +90,7 @@ main {
 
 /* Apply gold banner only to the page header */
 .page-header {
-    background-color: #f6b913 !important;
+    background-color: #4deaff !important;
     padding: 1.25rem 1rem;
     border-radius: 6px;
     margin-bottom: 1.5rem;
@@ -118,7 +118,7 @@ main {
 .club-card h3 {
     margin: 0 0 0.9rem 0;
     font-size: 1.45rem;
-    color: blue;
+    color: rgb(58, 127, 255);
 }
 
 .club-card p {
@@ -126,75 +126,7 @@ main {
     line-height: 1.45;
 }
 
-.club-card strong {
-    color: #333;
-}
 
-/* Temporary highlight applied to matched card */
-.search-highlight {
-    background-color: #fffde7 !important;
-    /* faint yellow */
-    box-shadow: 0 0 0 6px rgba(246, 185, 19, 0.25) !important;
-    transform: translateY(-4px);
-    transition:
-        background-color 1s ease,
-        box-shadow 0.25s ease,
-        transform 0.2s ease;
-    position: relative;
-    z-index: 5;
-}
-
-/* Suggestions styling: normal weight by default, bold on hover */
-.search-dropdown .suggestion {
-    font-weight: 400;
-    padding: 6px 8px;
-}
-
-.search-dropdown .suggestion:hover {
-    font-weight: 700;
-    background: #f8f9fa;
-    cursor: pointer;
-}
-
-/* Make the search bar fixed/sticky to the top-right on all pages and override inline styles */
-.search-container {
-    position: fixed !important;
-    top: 15px !important;
-    right: 20px !important;
-    width: 250px !important;
-    z-index: 1200;
-}
-
-/* Ensure the dropdown is positioned correctly relative to the fixed search container */
-.search-container .search-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: auto;
-    width: 100%;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-}
-
-.sn-pro-uniquifier {
-    font-family: "SN Pro", sans-serif !important;
-    font-optical-sizing: auto !important;
-    font-weight: 400 !important;
-    font-style: normal;
-}
-
-/* Responsive: avoid covering content on small screens and allow the search to expand */
-@media (max-width: 576px) {
-    .search-container {
-        width: 78vw !important;
-        right: 6% !important;
-        top: 12px !important;
-    }
-
-    /* give a small top offset so the fixed search does not overlap the page header */
-    body {
-        padding-top: 56px;
-    }
-}
 
 /* Banner carousel at top of index with text overlay */
 .banner-carousel {
@@ -345,11 +277,6 @@ main {
     line-height: 1.5;
 }
 
-.carousel-wrapper .carousel img {
-    width: 100%;
-    height: auto;
-}
-
 /* Teddy card fixed size to match Sam's first carousel image on large screens */
 @media (min-width: 992px) {
 
@@ -381,40 +308,7 @@ main {
     }
 }
 
-/* ── Google Reviews Section Styling ───────────────────────── */
-#google-reviews {
-    background: white;
-    border-radius: 10px;
-    padding: 2rem;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-}
 
-#google-reviews h2 {
-    font-size: 1.8rem;
-    color: #007bff;
-    margin-bottom: 1rem;
-}
-
-#google-reviews p {
-    font-size: 1.05rem;
-    color: #212529;
-    margin-bottom: 1.5rem;
-}
-
-#google-reviews .btn {
-    font-size: 1rem;
-    padding: 0.6rem 1.2rem;
-}
-
-#google-reviews .google-review-embed iframe {
-    border-radius: 10px;
-    margin-top: 1rem;
-    max-width: 100%;
-}
 
 .purchase-reviews-container {
     display: grid;
@@ -429,18 +323,16 @@ main {
     }
 }
 
-.purchase-section,
-.reviews-section {
+.purchase-section {
     background: white;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
-.purchase-section h2,
-.reviews-section h2 {
+.purchase-section h2 {
     margin-bottom: 1.5rem;
-    color: blue;
+    color: rgb(58, 127, 255);
     font-weight: bold;
 }
 
