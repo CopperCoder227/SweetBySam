@@ -100,7 +100,7 @@ main {
 
 /* ── Club Cards ──────────────────────────────────────── */
 .club-card {
-    background: white;
+    background: #d8e4ff;
     border-radius: 10px;
     padding: 1.5rem;
     border: 1px solid #e0e0e0;
@@ -153,10 +153,11 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(131, 170, 255, 0.5);
     padding: 1rem 2rem;
     border-radius: 6px;
     text-align: center;
+    color: black;
 }
 
 

@@ -14,7 +14,7 @@
 
 .purchase-section,
 .reviews-section {
-    background: white;
+    background: #d8e4ff;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
@@ -110,7 +110,7 @@
 }
 
 .review-card {
-    background: #f9f9f9;
+    background: #d8e4ff;
     padding: 1rem;
     border-radius: 5px;
     margin-bottom: 1rem;
