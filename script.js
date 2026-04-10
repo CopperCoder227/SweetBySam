@@ -153,7 +153,8 @@ const carouselImages = [
     { src: 'img/forvCake.jpeg', offsetY: '-250px' },
     { src: 'img/xoCake.jpeg', offsetY: '-250px' },
     { src: 'img/chocolateCake.jpeg', offsetY: '-200px' },
-    { src: 'img/fridgeCake.jpeg', offsetY: '-350px' }
+    { src: 'img/fridgeCake.jpeg', offsetY: '-350px' },
+    { src: 'img/snoopyCake.jpeg' }
 ];
 
 function initCarousel() {

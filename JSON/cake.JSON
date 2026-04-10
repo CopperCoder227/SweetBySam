@@ -28,5 +28,15 @@
         "name": "XO Cake",
         "description": "Sweet cake with hugs and kisses.",
         "image": "img/xoCake.jpeg"
+    },
+    {
+        "name": "Crumble Cake",
+        "description": "Rich chocolate layers topped with creamy ganache.",
+        "image": "img/chocolateCake.jpeg"
+    },
+    {
+        "name": "Snoopy Cake",
+        "description": "Playful Snoopy-themed cake that’s perfect for any celebration.",
+        "image": "img/snoopyCake.jpeg"
     }
 ]
