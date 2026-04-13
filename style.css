@@ -11,6 +11,7 @@ body {
     color: #212529;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 /* Menu icon - make sure it's visible and clickable */
@@ -40,8 +41,8 @@ body {
 /* Sidebar - slide-in from left (reliable mobile/desktop) */
 .sidebar {
     position: fixed;
-    inset: 0 auto 0 -280px;
-    /* top right bottom left */
+    left: -320px;
+    top: 0;
     width: 280px;
     height: 100vh;
     background: #2c2c2c;
@@ -54,7 +55,7 @@ body {
 }
 
 .sidebar.open {
-    transform: translateX(280px);
+    transform: translateX(320px);
 }
 
 /* Links in sidebar */
