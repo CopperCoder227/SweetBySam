@@ -35,11 +35,6 @@
         "image": "img/towerrainbowcookie.jpeg"
     },
     {
-        "name": "Rice Krispie Cookies",
-        "description": "Crispy, chewy cookies with marshmallow and crunch.",
-        "image": "img/ricecrispyCookie.jpeg"
-    },
-    {
         "name": "Brownie Cookie",
         "description": "Fudgy, rich cookie with deep chocolate flavor.",
         "image": "img/bworniecookie.jpeg"
@@ -48,5 +43,10 @@
         "name": "'Thanks' Cookie",
         "description": "Buttery cookie packed with sweet, crunchy toffee bits.",
         "image": "img/tycookie.jpeg"
+    },
+    {
+        "name": "Macarons",
+        "description": "Delicate, colorful French almond cookies with smooth ganache filling.",
+        "image": "img/macarons.jpeg"
     }
 ]

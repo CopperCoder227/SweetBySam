@@ -8,5 +8,25 @@
         "name": "Chocolate Brittle",
         "description": "Crunchy chocolate brittle with a rich, sweet snap.",
         "image": "img/chocolateBrittle.jpeg"
+    },
+    {
+        "name": "Valentines Rice Krispies",
+        "description": "Crispy, chewy cookies with marshmallow and crunch.",
+        "image": "img/ricecrispyCookie.jpeg"
+    },
+    {
+        "name": "Chocolate Muffins",
+        "description": "Moist, delicious chocolate muffins with rich cocoa flavor.",
+        "image": "img/chocolateCupcake.jpeg"
+    },
+    {
+        "name": "Game Day Rice Krispies",
+        "description": "Festive rice krispie treats perfect for game day celebrations.",
+        "image": "img/gamedayKrispies.jpeg"
+    },
+    {
+        "name": "Spook Strawberries",
+        "description": "Spooky strawberry treats decorated for Halloween fun.",
+        "image": "img/spookystrawberries.jpeg"
     }
 ]
